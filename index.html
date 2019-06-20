@@ -286,6 +286,529 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://selfshen.github.io/2019/06/20/spring/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/20/spring/" class="post-title-link" itemprop="url">Spring</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Erstellt: 2019-06-20 00:00:00 / Geändert am: 20:44:02" itemprop="dateCreated datePublished" datetime="2019-06-20T00:00:00+08:00">2019-06-20</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><ul>
+<li><p>Spring核心部分<br>  ##</p>
+<ul>
+<li><p><strong>IOC:控制反转（Inversion of Control）</strong></p>
+<ul>
+<li><p>对于Spring框架来说，就是由Spring来负责控制对象的生命周期和对象之间的关系，对于一个对象来说，以前是它控制其他对象，现在是所有对象都被Spring控制，所以叫做控制反转。</p>
+</li>
+<li><p>IOC重点是在系统运行过程中，动态的向某个对象提供它所需要的其他对象，这是通过DI(Dependency Injection，依赖注入)来实现的， </p>
+</li>
+<li><p>Spring的IOC容器在实现控制反转和依赖注入的过程可划分容器启动阶段（加载配置、分析配置信息、装备到Bean Definition、其他后续处理）和Bean实例华阶段（实例化对象、装配依赖、生命周期回调、对象其他处理、注册回调接口）。</p>
+</li>
+<li><p>两种IOC容器：BeanFactory和ApplicationContext，ApplicationContext是Bean Factory的子类</p>
+</li>
+<li><p>BanFactory：基础类型IOC容器，提供完整的IOC服务支持，默认采用延迟策略（lazy-load），只有当客户端对象需要访问容器中的某个受管对象时，才对该受管对象进行初始化以及依赖注入操作，适用于资源有限，功能要求不是很严格的场景。</p>
+</li>
+<li><p>ApplicationContext：ApplicationContext在BeanFactory的基础上构建，是相对高级的容器实现，除了拥有Bean Factory的所有支持，ApplicationCotext还提供其他高级特性，比如事件发布、国际化信息支持等，ApplicationContext所管理的对象，在该类型容器启动之后，默认全部初始化并绑定完成。所以相对BeanFactory来说，ApplicationContext要求跟多的系统资源，同时因为启动时就完成初始化，容器启动时间会比BeanFactory长一些，适用于资源充足，并且要求更多的场景。<br>##</p>
+</li>
+</ul>
+</li>
+<li><p><strong>AOP：面向切面编程（Aspect Oriented Programming）</strong></p>
+<ul>
+<li><p>主要管理系统层的业务，比如事务、权限、日志等。AOP将散布于不同业务但功能相同的代码从业务逻辑中抽取出来，封装成独立的模块，这些独立的模块被称为切面（Aspect）,切面的具体功能方法被称为关注点，在业务逻辑执行过程中，AOP会把分离出来的切面和关注点动态切入到业务流程中，这样可以降低业务逻辑各个部分之间的耦合度，提高代码的可重用性和可维护性。</p>
+</li>
+<li><p>Aspect（切面）：切入业务流程的一个独立模块，aspect声明类似于java类的声明（new class），会包含一些PointCut以及相应的Advice。</p>
+</li>
+<li><p>JoinPoint（连接点）：业务流程在运行过程中需要插入切面（Aspect）的具体位置，自身可以嵌套其他JoinPoint。</p>
+</li>
+<li><p>Advice（增强）：切面（Aspect）的具体实现方法，可分为5种，前置通知（before）、后置通知（AfterReturning）、异常通知（AfterThrowing）、最终通知（After）、环绕通知（Around），通过这些来区别是在每个JointPoint之前、之后还是代替指向的代码。实现方法具体属于哪类通知，需要在配置文件和注解中指定。</p>
+</li>
+<li><p>PointCut（切入点）：表示一组JointPoint，用于定义通知应该切入到那些连接点上，不同的通知通常需要切入到不同的连接点上。</p>
+</li>
+<li><p>Target（目标对象）：被一个或多个切面所通知的对象，织入Advice的目标对象。</p>
+</li>
+<li><p>Proxy（代理对象）：将通知应用到目标对象后被动态创建的对象。可理解为，目标对象的业务逻辑功能和切入的切面所形成的对象。</p>
+</li>
+<li><p>Weaving（切入、织入）：将切面应用到目标对象从而创建一个新的代理对象的过程，这个过程可以在编译期、类装载期或运行期（将Aspect和其他对象连接起来，并创建Advice对象的过程）。</p>
+</li>
+</ul>
+</li>
+<li>AOP实现过程：<ul>
+<li>编写需要切入业务流程的独立模块（切面、aspect）、切入点（模块中的方法）。</li>
+<li>在Spring配置文件中配置AOP，配置切入面、切入点、需要切入的目标bean。</li>
+<li>编写测试代码(^_^)。</li>
+</ul>
+</li>
+<li><p>理解Aspect、JointPoint、PointCut和Advice关系：</p>
+<ul>
+<li><p>JointPoint：所有可执行的方法，都可以Weaving Advice。</p>
+</li>
+<li><p>PointCut：但我们不希望所有方法都织入Advice，所以通过PointCut来定义一组规则来匹配JointPoint，给满足PointCut的JointPoint添加Advice。</p>
+</li>
+<li><p>Advice：一段Java代码，作用于PointCut所限定的JointPoint上（由Aspect添加到特定JointPoint（满足PointCut规则）的一段代码）。</p>
+</li>
+<li><p>Aspect：是PointCut和Advice的组合，即为满足PointCut的JointPoint添加Advice。</p>
+</li>
+<li><p>简单理解，使用了@Aspect注解的类就是切面（Aspect）。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://selfshen.github.io/2019/04/24/快速排序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/24/快速排序/" class="post-title-link" itemprop="url">排序算法</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Erstellt: 2019-04-24 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-24T00:00:00+08:00">2019-04-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2019-06-20 20:52:26" itemprop="dateModified" datetime="2019-06-20T20:52:26+08:00">2019-06-20</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#快速排序</p>
+<p>##思想<br>快速排序在待排序数组中随机选取一个key关键值（一般把最左边元素作为关键值），选取数组最左和最右边的位置作为交互指针，开始时，将key关键值与最右指针所指向的值进行比较，若右指针所指向的值比key小，则将右指针所指向的值赋值给key所指向的位置，此时，右指针与key重叠，否则将右指针左移，将左指针所指向值与key进行比较，若左指针的值比key大，则将左指针的值赋值给key所在位置，否则左指针右移，到最后，key、左指针、右指针重叠，此时将key值回归数组，为一轮划分，即将待排序数组按key值划分出比key值小和比key值大的两个区域，此时key值在数组中为有序元素，如此重复，直达所有元素都有序为止。</p>
+<p>##代码<br>    public void QuickSort(int[] arr,int _left,int _right){<br>        int key=arr[_left];<br>        int left=_left;<br>        int right=_right;<br>        if(arr==null) return;<br>        while(left!=right){<br>            while(left&lt;right &amp;&amp; key&lt;=arr[right]) right–;<br>            arr[left]=arr[right];<br>            while(left<right && key>=arr[left]) left++;<br>            arr[right]=arr[left];<br>        }<br>        arr[left]=key;    //此时left=right<br>        QuickSort(arr,_left,left-1);<br>        QuickSort(arr,left+1,_right);<br>    }</right></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://selfshen.github.io/2019/04/15/排序算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/15/排序算法/" class="post-title-link" itemprop="url">排序算法</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Erstellt: 2019-04-15 22:36:17 / Geändert am: 23:19:29" itemprop="dateCreated datePublished" datetime="2019-04-15T22:36:17+08:00">2019-04-15</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.常用九中排序算法：<br>    冒泡排序、鸡尾酒排序<br>    快速排序<br>    选择排序<br>    插入排序、二分插入排序<br>    希尔排序<br>    堆排序<br>    归并排序</p>
+<p>2.冒泡排序和鸡尾酒排序<br>    鸡尾酒排序算法是在冒泡排序的基础上进一步优化而来。</p>
+<pre><code>2.1冒泡排序
+    冒泡排序算法在排序开始前可以将序列分为两个区域：无序区和有序区，开始时无序区为代排的原始序列，有序区为空，每一趟排序将在无序区中选出最大（或最小）的一个数放在有序区中，交换顺序为相邻的两个数进行比较，若前一个数比后一个数大就进行交换，否则不进行交换，例如数组由小到大进行冒泡排序：
+原始待排数组：7836452190
+划分区域：
+无序区：7836452190    有序区：
+第一趟排序：无序区：783645210   有序区：9
+第二趟排序：无序区：73645210    有序区：89
+第三趟排序：无序区：3645210     有序区：789
+第四趟排序：无序区：345210      有序区：6789
+第五趟排序：无序区：34210       有序区：56789
+第六趟排序：无序区：3210        有序区：456789
+第七趟排序：无序区：210         有序区：3456789
+第八趟排序：无序区：10          有序区：23456789
+第九趟排序：无序区：0           有序区：123456789
+第二趟排序：无序区：            有序区：0123456789
+
+2.2鸡尾酒排序（定向冒泡排序）
+    有上面可以看出，冒泡排序每次只能选出一个最大（或最小）的数，这样每一趟排序结束后都得回到初始下标进行二轮排序
+</code></pre>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://selfshen.github.io/2019/04/15/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -460,7 +983,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
