@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="#快速排序 ##思想快速排序在待排序数组中随机选取一个key关键值（一般把最左边元素作为关键值），选取数组最左和最右边的位置作为交互指针，开始时，将key关键值与最右指针所指向的值进行比较，若右指针所指向的值比key小，则将右指针所指向的值赋值给key所指向的位置，此时，右指针与key重叠，否则将右指针左移，将左指针所指向值与key进行比较，若左指针的值比key大，则将左指针的值赋值给key所在位">
+  <meta name="description" content="《–个人笔记–》 #List  List接口实现了Conllection接口，主要实现类 ArrayList LinkedList   List集合中的元素是有序的，可以根据索引位置检索List集合中的元素。  ## #ArrayList  ArrayList，底层元素为对象的数组。  arraylist：动态数组，可以动态的增加和减少元素，实现了Collection和List接口，可以灵活的设置">
 <meta property="og:type" content="article">
-<meta property="og:title" content="排序算法">
-<meta property="og:url" content="http://selfshen.github.io/2019/04/24/快速排序/index.html">
+<meta property="og:title" content="List、ArrayList和LinkedList">
+<meta property="og:url" content="http://selfshen.github.io/2019/06/21/arraylist&linklist/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="#快速排序 ##思想快速排序在待排序数组中随机选取一个key关键值（一般把最左边元素作为关键值），选取数组最左和最右边的位置作为交互指针，开始时，将key关键值与最右指针所指向的值进行比较，若右指针所指向的值比key小，则将右指针所指向的值赋值给key所指向的位置，此时，右指针与key重叠，否则将右指针左移，将左指针所指向值与key进行比较，若左指针的值比key大，则将左指针的值赋值给key所在位">
+<meta property="og:description" content="《–个人笔记–》 #List  List接口实现了Conllection接口，主要实现类 ArrayList LinkedList   List集合中的元素是有序的，可以根据索引位置检索List集合中的元素。  ## #ArrayList  ArrayList，底层元素为对象的数组。  arraylist：动态数组，可以动态的增加和减少元素，实现了Collection和List接口，可以灵活的设置">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-20T12:52:26.503Z">
+<meta property="og:updated_time" content="2019-06-21T14:20:13.872Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="排序算法">
-<meta name="twitter:description" content="#快速排序 ##思想快速排序在待排序数组中随机选取一个key关键值（一般把最左边元素作为关键值），选取数组最左和最右边的位置作为交互指针，开始时，将key关键值与最右指针所指向的值进行比较，若右指针所指向的值比key小，则将右指针所指向的值赋值给key所指向的位置，此时，右指针与key重叠，否则将右指针左移，将左指针所指向值与key进行比较，若左指针的值比key大，则将左指针的值赋值给key所在位">
+<meta name="twitter:title" content="List、ArrayList和LinkedList">
+<meta name="twitter:description" content="《–个人笔记–》 #List  List接口实现了Conllection接口，主要实现类 ArrayList LinkedList   List集合中的元素是有序的，可以根据索引位置检索List集合中的元素。  ## #ArrayList  ArrayList，底层元素为对象的数组。  arraylist：动态数组，可以动态的增加和减少元素，实现了Collection和List接口，可以灵活的设置">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://selfshen.github.io/2019/04/24/快速排序/">
+  <link rel="canonical" href="http://selfshen.github.io/2019/06/21/arraylist&linklist/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>排序算法 | Hexo</title>
+  <title>List、ArrayList和LinkedList | Hexo</title>
   
 
 
@@ -289,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://selfshen.github.io/2019/04/24/快速排序/">
+    <link itemprop="mainEntityOfPage" href="http://selfshen.github.io/2019/06/21/arraylist&linklist/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -306,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">排序算法
+          <h1 class="post-title" itemprop="name headline">List、ArrayList和LinkedList
 
               
             
@@ -332,24 +332,12 @@
                 
               
 
-              <time title="Created: 2019-04-24 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-24T00:00:00+08:00">2019-04-24</time>
+              <time title="Created: 2019-06-21 00:00:00 / Modified: 22:20:13" itemprop="dateCreated datePublished" datetime="2019-06-21T00:00:00+08:00">2019-06-21</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-06-20 20:52:26" itemprop="dateModified" datetime="2019-06-20T20:52:26+08:00">2019-06-20</time>
               
             
           </span>
@@ -383,9 +371,154 @@
       
 
       
-        <p>#快速排序</p>
-<p>##思想<br>快速排序在待排序数组中随机选取一个key关键值（一般把最左边元素作为关键值），选取数组最左和最右边的位置作为交互指针，开始时，将key关键值与最右指针所指向的值进行比较，若右指针所指向的值比key小，则将右指针所指向的值赋值给key所指向的位置，此时，右指针与key重叠，否则将右指针左移，将左指针所指向值与key进行比较，若左指针的值比key大，则将左指针的值赋值给key所在位置，否则左指针右移，到最后，key、左指针、右指针重叠，此时将key值回归数组，为一轮划分，即将待排序数组按key值划分出比key值小和比key值大的两个区域，此时key值在数组中为有序元素，如此重复，直达所有元素都有序为止。</p>
-<p>##代码<br>    public void QuickSort(int[] arr,int _left,int _right){<br>        int key=arr[_left];<br>        int left=_left;<br>        int right=_right;<br>        if(arr==null) return;<br>        while(left!=right){<br>            while(left&lt;right &amp;&amp; key&lt;=arr[right]) right–;<br>            arr[left]=arr[right];<br>            while(left<right && key>=arr[left]) left++;<br>            arr[right]=arr[left];<br>        }<br>        arr[left]=key;    //此时left=right<br>        QuickSort(arr,_left,left-1);<br>        QuickSort(arr,left+1,_right);<br>    }</right></p>
+        <p>《–个人笔记–》</p>
+<p>#List</p>
+<ul>
+<li>List接口实现了Conllection接口，主要实现类<ul>
+<li>ArrayList</li>
+<li>LinkedList</li>
+</ul>
+</li>
+<li>List集合中的元素是有序的，可以根据索引位置检索List集合中的元素。</li>
+</ul>
+<p>##</p>
+<p>#ArrayList</p>
+<ul>
+<li><p>ArrayList，底层元素为对象的数组。</p>
+</li>
+<li><p>arraylist：动态数组，可以动态的增加和减少元素，实现了Collection和List接口，可以灵活的设置数组大小。</p>
+</li>
+<li><p>arraylist提供构造器：</p>
+<ul>
+<li><p>public ArrayList();默认构造器，默认（16）的大小初始化内部数组。</p>
+</li>
+<li><p>public ArrayList(ICollection);用IConllection对象进行构造，并将该集合的元素添加到ArrayList。</p>
+</li>
+<li><p>public ArrayList(int);可以用来指定初始化内部数组的大小。</p>
+</li>
+</ul>
+</li>
+<li><p>IsSynchronized属性和ArrayList.Synchronized方法</p>
+<ul>
+<li><p>IsSynchronized属性，当前arrayList实例是否支持线程同步。</p>
+</li>
+<li><p>ArrayList.Synchronized静态方法，返回ArrayList线程同步的封装。</p>
+</li>
+</ul>
+</li>
+<li><p>Count属性和Capacity属性</p>
+<ul>
+<li>Count属性，当前ArrayList包含元素的数量（只读属性）。</li>
+<li>Capacity属性，目前ArrayList能够包含的最大数量，可手动设置，小于count时将引发异常。</li>
+</ul>
+</li>
+<li><p>ArrayList基本方法</p>
+<ul>
+<li>Add方法，添加一个元素到arrayList列表末尾。</li>
+<li>AddRange方法，添加一组元素到arrayList列表末尾。</li>
+<li>Remove方法，通过元素引用来删除一个元素。</li>
+<li>RemoveAt方法，通过索引删除一个元素。</li>
+<li>RemoveRange方法，通过指定开始索引和数量，批量删除元素。</li>
+<li>Insert方法，插入一个元素到指定位置（后续元素后移腾位给插入元素）。</li>
+<li>InsertRange方法，指定位置批量插入元素（后续元素后移腾位给插入元素）。</li>
+<li>Clear方法，清除arraylist中所有元素。</li>
+<li>Contains方法，判断某个对象在不在arraylist中。</li>
+</ul>
+</li>
+<li><p>arrayList的长度是动态的，不受限制，可以存储任意多的对象，但是只能存储对象，不能存储原生数据类型（8种：byte、short、int、long、float、double、char、boolean）。</p>
+</li>
+<li><p>arrayList与数组的差别：</p>
+<ul>
+<li>arraylist内部封装了Object类型的数组，与数组没有本质区别。</li>
+<li>arraylist添加元素时，会先检查内部数组容量大小，容量不足时，arraylist会以当前容量的两倍来重新构建一个数组，将元素copy到新数组后，丢弃原数组。</li>
+<li>数组一旦初始化，容量固定。</li>
+<li>如果经常需要根据索引位置访问集合中的对象，使用由ArrayList类实现的List集合的效率更高，如果需要经常向List集合指定索引位置插入/删除对象，使用由ArrayList类实现的List集合的效率可能会降低。</li>
+</ul>
+</li>
+</ul>
+<p>##</p>
+<p>#LinkedList</p>
+<ul>
+<li><p>LinkedList,继承AbstractSequentialList，并实现了List接口。</p>
+</li>
+<li><p>LinkedList，采用链表结构保存对象，底层为双向链表。</p>
+</li>
+<li><p>LinkedList，便于向集合中插入/删除元素，需要频繁向集合中插入和删除元素时，使用LinkedList的效率比ArrayList高，但LinkedList随机访问元素（根据索引位置访问集合中的对象）的速度则相对较慢。</p>
+</li>
+<li><p>LinkedList中的存储节点（Node），定义如下</p>
+<pre><code>private static class Node&lt;E&gt;{
+    E item;
+    Node&lt;E&gt; next;
+    Node&lt;E&gt; prev;
+    Node(Node&lt;E&gt; prev, E elementm, Node&lt;E&gt; next){
+        this.item=element;
+        this.next=next;
+        this.prev=prev;
+    }
+}
+</code></pre></li>
+<li><p>LinkedList通过next、prev指针串联起整个List。</p>
+</li>
+<li><p>Node节点在初始化的时候同时指明了初始化节点的前后节点，在后续代码中，往往没有明显写明新节点的前后指针指向，在LinkedList中，仅仅记录了List开始、结束节点和size。</p>
+</li>
+<li><p>LinkedList在头节点、尾节点和已知节点的插入和删除时间复杂度都是O(1)，但需要确定位置再操作，所以时间复杂度变为O(n)。</p>
+</li>
+</ul>
+<p>##</p>
+<p>#ArrayList、LinkedList区别</p>
+<ul>
+<li><p>底层实现不同：</p>
+<ul>
+<li><p>ArrayList和Vector，使用数组实现，可认为ArrayList或者Vector封装了对内部数组的操作。</p>
+</li>
+<li><p>LinkedList，使用循环双向链表数据结构。</p>
+</li>
+</ul>
+</li>
+<li><p>随机访问效率不同：</p>
+<ul>
+<li><p>ArrayList是基于索引的数据接口，底层是数组，可以使用索引在数组中搜索和读取数据，以O(1)时间复杂度对ArrayList元素进行随机访问（根据索引位置访问集合中的对象）。</p>
+</li>
+<li><p>LinkedList以链表形式存储数据，底层是循环双向链表，由于要确定元素节点位置，所以LinkedList随机访问数据的时间复杂度为O(n)。</p>
+</li>
+<li><p>类似于随机访问时，arrayList优于LinkedList。</p>
+</li>
+</ul>
+</li>
+<li><p>插入、删除和添加效率不同：</p>
+<ul>
+<li><p>ArrayList在数组装满的时候需要将所有数据重新装入一个新数组，这是最坏一种情况，时间复杂度为O(n)，ArrayList在插入数据时需要更新索引（除了插入数组尾部）。</p>
+</li>
+<li><p>LinkedList中插入或删除数据的时间复杂为O(1)。</p>
+</li>
+<li><p>类似于插入数据、删除数据时，LinkedList优于ArrayList。</p>
+</li>
+</ul>
+</li>
+<li><p>消耗内存不同：</p>
+<ul>
+<li><p>ArrayList的每个索引的位置存储的实际数据。</p>
+</li>
+<li><p>LinkedList中每个节点中除了存储实际数据外，还要存储前后节点的位置。</p>
+</li>
+<li><p>所以LinkedList比ArrayList更消内存。</p>
+</li>
+</ul>
+</li>
+<li><p>ArrayList适用场景：</p>
+<ul>
+<li>需要经常基于索引的访问数据，ArrayList容易使用且速度也快。</li>
+</ul>
+</li>
+<li><p>LinkedList适用场景：</p>
+<ul>
+<li><p>不需要经常随机访问数据，因为获取LinkedList中的某一个元素时，需要从第一个元素开始搜索。</p>
+</li>
+<li><p>经常进行插入和删除元素操作，更少的读取数据操作，因为LinkedList插入和删除元素不需要重排数据，所以LinkedList要比ArrayList快。</p>
+</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -416,8 +549,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/15/排序算法/" rel="next" title="排序算法">
-                <i class="fa fa-chevron-left"></i> 排序算法
+              <a href="/2019/06/20/mvc/" rel="next" title="Spring">
+                <i class="fa fa-chevron-left"></i> Spring
               </a>
             
           </div>
@@ -425,10 +558,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/20/spring/" rel="prev" title="Spring">
-                Spring <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

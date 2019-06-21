@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="#快速排序 ##思想快速排序在待排序数组中随机选取一个key关键值（一般把最左边元素作为关键值），选取数组最左和最右边的位置作为交互指针，开始时，将key关键值与最右指针所指向的值进行比较，若右指针所指向的值比key小，则将右指针所指向的值赋值给key所指向的位置，此时，右指针与key重叠，否则将右指针左移，将左指针所指向值与key进行比较，若左指针的值比key大，则将左指针的值赋值给key所在位">
+  <meta name="description" content="#MVC  MVC概念：https://www.cnblogs.com/chengyuanchun/p/4914154.html  Model（模型），代表存取数据的对象（Java web中的pojo），可以带有逻辑，在数据变化时跟新controller层。  View(视图)，可视化界面（jsp、html等）。  Controller（控制器），作用于模型和视图。    mvc优点：  降低耦合">
 <meta property="og:type" content="article">
-<meta property="og:title" content="排序算法">
-<meta property="og:url" content="http://selfshen.github.io/2019/04/24/快速排序/index.html">
+<meta property="og:title" content="Spring">
+<meta property="og:url" content="http://selfshen.github.io/2019/06/20/mvc/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="#快速排序 ##思想快速排序在待排序数组中随机选取一个key关键值（一般把最左边元素作为关键值），选取数组最左和最右边的位置作为交互指针，开始时，将key关键值与最右指针所指向的值进行比较，若右指针所指向的值比key小，则将右指针所指向的值赋值给key所指向的位置，此时，右指针与key重叠，否则将右指针左移，将左指针所指向值与key进行比较，若左指针的值比key大，则将左指针的值赋值给key所在位">
+<meta property="og:description" content="#MVC  MVC概念：https://www.cnblogs.com/chengyuanchun/p/4914154.html  Model（模型），代表存取数据的对象（Java web中的pojo），可以带有逻辑，在数据变化时跟新controller层。  View(视图)，可视化界面（jsp、html等）。  Controller（控制器），作用于模型和视图。    mvc优点：  降低耦合">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-20T12:52:26.503Z">
+<meta property="og:updated_time" content="2019-06-20T14:08:39.466Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="排序算法">
-<meta name="twitter:description" content="#快速排序 ##思想快速排序在待排序数组中随机选取一个key关键值（一般把最左边元素作为关键值），选取数组最左和最右边的位置作为交互指针，开始时，将key关键值与最右指针所指向的值进行比较，若右指针所指向的值比key小，则将右指针所指向的值赋值给key所指向的位置，此时，右指针与key重叠，否则将右指针左移，将左指针所指向值与key进行比较，若左指针的值比key大，则将左指针的值赋值给key所在位">
+<meta name="twitter:title" content="Spring">
+<meta name="twitter:description" content="#MVC  MVC概念：https://www.cnblogs.com/chengyuanchun/p/4914154.html  Model（模型），代表存取数据的对象（Java web中的pojo），可以带有逻辑，在数据变化时跟新controller层。  View(视图)，可视化界面（jsp、html等）。  Controller（控制器），作用于模型和视图。    mvc优点：  降低耦合">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://selfshen.github.io/2019/04/24/快速排序/">
+  <link rel="canonical" href="http://selfshen.github.io/2019/06/20/mvc/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>排序算法 | Hexo</title>
+  <title>Spring | Hexo</title>
   
 
 
@@ -289,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://selfshen.github.io/2019/04/24/快速排序/">
+    <link itemprop="mainEntityOfPage" href="http://selfshen.github.io/2019/06/20/mvc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -306,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">排序算法
+          <h1 class="post-title" itemprop="name headline">Spring
 
               
             
@@ -332,24 +332,12 @@
                 
               
 
-              <time title="Created: 2019-04-24 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-24T00:00:00+08:00">2019-04-24</time>
+              <time title="Created: 2019-06-20 00:00:00 / Modified: 22:08:39" itemprop="dateCreated datePublished" datetime="2019-06-20T00:00:00+08:00">2019-06-20</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-06-20 20:52:26" itemprop="dateModified" datetime="2019-06-20T20:52:26+08:00">2019-06-20</time>
               
             
           </span>
@@ -383,9 +371,26 @@
       
 
       
-        <p>#快速排序</p>
-<p>##思想<br>快速排序在待排序数组中随机选取一个key关键值（一般把最左边元素作为关键值），选取数组最左和最右边的位置作为交互指针，开始时，将key关键值与最右指针所指向的值进行比较，若右指针所指向的值比key小，则将右指针所指向的值赋值给key所指向的位置，此时，右指针与key重叠，否则将右指针左移，将左指针所指向值与key进行比较，若左指针的值比key大，则将左指针的值赋值给key所在位置，否则左指针右移，到最后，key、左指针、右指针重叠，此时将key值回归数组，为一轮划分，即将待排序数组按key值划分出比key值小和比key值大的两个区域，此时key值在数组中为有序元素，如此重复，直达所有元素都有序为止。</p>
-<p>##代码<br>    public void QuickSort(int[] arr,int _left,int _right){<br>        int key=arr[_left];<br>        int left=_left;<br>        int right=_right;<br>        if(arr==null) return;<br>        while(left!=right){<br>            while(left&lt;right &amp;&amp; key&lt;=arr[right]) right–;<br>            arr[left]=arr[right];<br>            while(left<right && key>=arr[left]) left++;<br>            arr[right]=arr[left];<br>        }<br>        arr[left]=key;    //此时left=right<br>        QuickSort(arr,_left,left-1);<br>        QuickSort(arr,left+1,_right);<br>    }</right></p>
+        <p>#MVC</p>
+<ul>
+<li><p>MVC概念：<a href="https://www.cnblogs.com/chengyuanchun/p/4914154.html" target="_blank" rel="noopener">https://www.cnblogs.com/chengyuanchun/p/4914154.html</a></p>
+<ul>
+<li><p>Model（模型），代表存取数据的对象（Java web中的pojo），可以带有逻辑，在数据变化时跟新controller层。</p>
+</li>
+<li><p>View(视图)，可视化界面（jsp、html等）。</p>
+</li>
+<li><p>Controller（控制器），作用于模型和视图。</p>
+</li>
+</ul>
+</li>
+<li><p>mvc优点：</p>
+<ul>
+<li>降低耦合性，view层、Model层分离、Controller层分离。</li>
+<li>提高可重用性，不同类型的view可访问同一个服务器端，例如pc端和移动端的不同视图层可一访问同一个服务器的代码。</li>
+<li>提高可维护性。</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -416,8 +421,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/15/排序算法/" rel="next" title="排序算法">
-                <i class="fa fa-chevron-left"></i> 排序算法
+              <a href="/2019/06/20/spring/" rel="next" title="Spring">
+                <i class="fa fa-chevron-left"></i> Spring
               </a>
             
           </div>
@@ -426,8 +431,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/06/20/spring/" rel="prev" title="Spring">
-                Spring <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/21/arraylist&linklist/" rel="prev" title="List、ArrayList和LinkedList">
+                List、ArrayList和LinkedList <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
